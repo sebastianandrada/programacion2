@@ -24,9 +24,20 @@ namespace Ejercicio3
             
         }
 
-        private static bool esPrimo(int num)
+        private static bool esPrimo(int numero)
         {
-            bool esPrimo = true;
+            int divisor = 2;
+            int resto = 0;
+            while(divisor < numero) {
+                resto = numero % divisor;
+                if(resto == 0)
+                {
+                    return false;
+                }
+                divisor++;
+            }
+            return true;
+            /*bool esPrimo = true;
             for(int i = 1; i<num; i++){
                 if(num % i != 0)
                 {
@@ -34,7 +45,7 @@ namespace Ejercicio3
                     break;
                 }
             }
-            return esPrimo;
+            return esPrimo;*/
         }
     }
 }
