@@ -33,7 +33,8 @@ namespace ejercicio16
             this.notaFinal = -1;
             if(this.nota1 >3 && this.nota2 >3)
             {
-                Random random = new Random();
+                Random random = new Random(10);
+                System.Threading.Thread.Sleep(100);
                 this.notaFinal = random.Next();
             }
         }

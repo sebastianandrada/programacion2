@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ejercicio17
+namespace Bilgraf
 {
+
     class Boligrafo
     {
-        const int cantidadTintaMaxima = 100;
+        //const int cantidadTintaMaxima = 100;
 
-        public short cantidadMaximaDeTinta;
         private ConsoleColor color;
         private short tinta;
+        private const short cantidadMaximaDeTinta = 100;
 
         public Boligrafo(short tinta, ConsoleColor color)
         {
@@ -32,7 +33,7 @@ namespace ejercicio17
 
         private void SetTinta(short tinta)
         {
-            if(tinta >= 0 && tinta <= this.cantidadMaximaDeTinta)
+            if(tinta >= 0 && tinta <= Boligrafo.cantidadMaximaDeTinta)
             {
                 this.tinta = tinta;
             }
@@ -40,8 +41,35 @@ namespace ejercicio17
 
         public void Recargar()
         {
-            this.SetTinta(this.cantidadMaximaDeTinta);
+            this.SetTinta(Boligrafo.cantidadMaximaDeTinta);
         }
-
+        /// <summary>
+        /// Pinta 
+        /// </summary>
+        /// <param name="gasto"></param>
+        /// <param name="dibujo"></param>
+        /// <returns></returns>
+        public bool Pintar(short gasto, out string dibujo)
+        {
+            string salida = "";
+            ;
+            int nuevo = this.GetTinta() - gasto;
+            SetTinta(-12);
+            
+            if(this.tinta > 0)
+            {
+                for(int i = 0; i<gasto; i++)
+                {
+                    salida = salida + "*";
+                }
+                dibujo = salida;
+                return true;
+            } else
+            {
+                dibujo = "";
+                return false;
+            }
+            
+        }
     }
 }
