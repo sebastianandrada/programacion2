@@ -23,7 +23,7 @@ namespace Entidades
                     resultado = numero1 * numero2;
                     break;
                 case "/":
-                    resultado = numero2.Equals(new Numero(0)) ? double.MinValue : numero1 / numero2;
+                    resultado = numero2.GetNumero() == 0 ? double.MinValue : numero1 / numero2;
                     break;
             }
             return resultado;

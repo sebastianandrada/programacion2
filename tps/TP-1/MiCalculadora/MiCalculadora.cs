@@ -32,7 +32,7 @@ namespace MiCalculadora
         {
             if (this.txtNumero1.Text.Equals(string.Empty) || this.txtNumero2.Text.Equals(string.Empty) || this.cmbOperador.Text.Equals(string.Empty))
             {
-                MessageBox.Show("Noooo!");
+                MessageBox.Show("Tenes que completar todos los campos", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } else
             {
                 double rdo = Operar(txtNumero1.Text, txtNumero2.Text, cmbOperador.Text);
@@ -57,12 +57,20 @@ namespace MiCalculadora
 
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
-            this.lblResultado.Text = "1231531";
+            Numero binario = new Numero();
+            string anterior = this.lblResultado.Text;
+            if (anterior != "Valor invalido" && anterior != string.Empty && lblResultado.Text[0] != '0')
+                this.lblResultado.Text = binario.DecimalBinario(this.lblResultado.Text);
         }
 
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
-            this.lblResultado.Text = "0000101";
+            Numero binario = new Numero();
+            string anterior = this.lblResultado.Text;
+            if(anterior != "Valor invalido" && anterior != string.Empty)
+            {
+                this.lblResultado.Text = binario.BinarioDecimal(this.lblResultado.Text);
+            }
         }
     }
 }

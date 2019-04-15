@@ -23,10 +23,10 @@ namespace Entidades
             double sum = 0;
             for (int i = 0; i < binario.Length; i++)
             {
-                if (binario[i] == '1'|| binario[i] == '0')
+                if (binario[i] == '1')
                 {
                     sum = sum + Math.Pow(2, (binario.Length - (i + 1)));
-                } else
+                } else if(binario[i] != '0')
                 {
                     valido = false;
                     break;
@@ -35,28 +35,28 @@ namespace Entidades
             return valido ? sum.ToString() : "Valor invalido";
         }
 
-        public string DecimalBinario(double numero)
-        {
-            string rdo = string.Empty;
-            double resto = 0;
-            while (numero > 0)
-            {
-                resto = numero % 2;
-                numero = numero / 2;
-                rdo = resto.ToString() + rdo;
-            }
-            return rdo;
-        }
-
-        public string DecimalNumero(string numero)
+        public string DecimalBinario(string numero)
         {
             string rdo = string.Empty;
             if (double.TryParse(numero, out double valor))
             {
                 rdo = this.DecimalBinario(valor);
-            } else
+            }
+            else
             {
                 rdo = "Valor invalido";
+            }
+            return rdo;
+        }
+
+        public string DecimalBinario(double numero)
+        {
+            string rdo = string.Empty;
+            int enteroAbs = Math.Abs((int)numero);
+            while (enteroAbs > 0)
+            {
+                rdo = (enteroAbs % 2).ToString() + rdo;
+                enteroAbs = enteroAbs / 2;
             }
             return rdo;
         }
@@ -98,13 +98,6 @@ namespace Entidades
 
         private static double ValidarNumero(string strNumero)
         {
-            /*if(double.TryParse(strNumero, out double ret))
-            {
-                return ret;
-            } else
-            {
-                return 0;
-            }*/
             return double.TryParse(strNumero, out double ret) ? ret : 0;
         }
 
