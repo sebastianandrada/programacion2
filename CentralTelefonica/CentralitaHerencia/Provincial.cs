@@ -31,8 +31,8 @@ namespace CentralitaHerencia
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(base.Mostrar());
-            sb.AppendFormat("Costo llamada: {0}", CostoLlamada);
-            sb.AppendFormat("franja horaria: {0}", this.franjaHoraria);
+            sb.AppendFormat("Costo llamada: {0}\n", CostoLlamada);
+            sb.AppendFormat("franja horaria: {0}\n", this.franjaHoraria);
             return sb.ToString();
         }
 

@@ -57,13 +57,42 @@ namespace CentralitaHerencia
         private float CalcularGanancia(TipoLlamada tipo)
         {
             float ganancia = 0f;
-            foreach(Llamada l in Llamadas)
+            switch (tipo)
             {
-                if(l is Local)
-                {
-                    Local local = (Local)l;
-                    ganancia += local.CostoLlamada;
-                }
+                case TipoLlamada.Local:
+                    foreach(Llamada l in Llamadas)
+                    {
+                        if(l is Local)
+                        {
+                            Local local = (Local)l;
+                            ganancia += local.CostoLlamada;
+                        }
+                    }
+                    break;
+                case TipoLlamada.Provincial:
+                    foreach (Llamada l in Llamadas)
+                    {
+                        if (l is Provincial)
+                        {
+                            Provincial provincial = (Provincial)l;
+                            ganancia += provincial.CostoLlamada;
+                        }
+                    }
+                    break;
+                case TipoLlamada.Todas:
+                    foreach(Llamada l in Llamadas)
+                    {
+                        if(l is Local)
+                        {
+                            Local local = (Local)l;
+                            ganancia += local.CostoLlamada;
+                        } else if (l is Provincial)
+                        {
+                            Provincial provincial = (Provincial)l;
+                            ganancia += provincial.CostoLlamada;
+                        }
+                    }
+                    break;
             }
             return ganancia;
         }
@@ -72,9 +101,9 @@ namespace CentralitaHerencia
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat("razon social: {0}\n", this.razonSocial);
-            sb.AppendFormat("ganancia total: ${0}", GananciasPorTotal);
-            sb.AppendFormat("ganancia por llamadas locales: ${0}", GananciasPorLocal);
-            sb.AppendFormat("ganancias por llamadas provinciales: ${0}", GananciasPorProvincial);
+            sb.AppendFormat("ganancia total: ${0}\n", GananciasPorTotal);
+            sb.AppendFormat("ganancia por llamadas locales: ${0}\n", GananciasPorLocal);
+            sb.AppendFormat("ganancias por llamadas provinciales: ${0}\n", GananciasPorProvincial);
 
             return sb.ToString();
         }
