@@ -8,9 +8,10 @@ namespace CentralitaHerencia
 {
     public class Provincial : Llamada
     {
+        public enum Franja { Franja_1, Franja_2, Franja_3}
         protected Franja franjaHoraria;
 
-        public float CostoLlamada
+        public override float CostoLlamada
         {
             get
             {
@@ -27,7 +28,7 @@ namespace CentralitaHerencia
             this.franjaHoraria = miFranja;
         }
 
-        public new string Mostrar()
+        protected override string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(base.Mostrar());
@@ -57,11 +58,14 @@ namespace CentralitaHerencia
 
         }
 
-        public enum Franja
+        public override bool Equals(object obj)
         {
-            Franja_1, Franja_2, Franja_3
+            return obj is Provincial;
         }
 
-
+        public override string ToString()
+        {
+            return this.Mostrar();
+        }
     }
 }

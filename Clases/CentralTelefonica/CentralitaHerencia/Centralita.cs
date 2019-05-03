@@ -49,7 +49,7 @@ namespace CentralitaHerencia
             this.listaDeLlamadas = new List<Llamada>();
         }
 
-        public Centralita(string nombreEmpresa)
+        public Centralita(string nombreEmpresa): this()
         {
             this.razonSocial = nombreEmpresa;
         }
@@ -57,42 +57,37 @@ namespace CentralitaHerencia
         private float CalcularGanancia(TipoLlamada tipo)
         {
             float ganancia = 0f;
-            switch (tipo)
+            foreach (Llamada l in Llamadas)
             {
-                case TipoLlamada.Local:
-                    foreach(Llamada l in Llamadas)
-                    {
-                        if(l is Local)
+                switch (tipo)
+                {
+                    case TipoLlamada.Local:
+                        if (l is Local)
                         {
                             Local local = (Local)l;
                             ganancia += local.CostoLlamada;
                         }
-                    }
-                    break;
-                case TipoLlamada.Provincial:
-                    foreach (Llamada l in Llamadas)
-                    {
+                        break;
+                    case TipoLlamada.Provincial:
                         if (l is Provincial)
                         {
                             Provincial provincial = (Provincial)l;
                             ganancia += provincial.CostoLlamada;
                         }
-                    }
-                    break;
-                case TipoLlamada.Todas:
-                    foreach(Llamada l in Llamadas)
-                    {
-                        if(l is Local)
+                        break;
+                    case TipoLlamada.Todas:
+                        if (l is Local)
                         {
                             Local local = (Local)l;
                             ganancia += local.CostoLlamada;
-                        } else if (l is Provincial)
+                        }
+                        else if (l is Provincial)
                         {
                             Provincial provincial = (Provincial)l;
                             ganancia += provincial.CostoLlamada;
                         }
-                    }
-                    break;
+                        break;
+                }
             }
             return ganancia;
         }
@@ -110,7 +105,35 @@ namespace CentralitaHerencia
 
         public void OrdenarLlamadas()
         {
+            Llamadas.Sort(Llamada.OrdenarPorDuracion);
+        }
 
+        public static bool operator ==(Centralita c, Llamada llamada)
+        {
+            bool contieneLlamada = false;
+            foreach(Llamada l in c.Llamadas)
+            {
+                if(l == llamada)
+                {
+                    contieneLlamada = true;
+                    break;
+                }
+            }
+            return contieneLlamada;
+        }
+
+        public static bool operator !=(Centralita c, Llamada llamada)
+        {
+            return !(c == llamada);
+        }
+
+        public static Centralita operator +(Centralita c, Llamada nuevaLlamada)
+        {
+            if(c != nuevaLlamada)
+            {
+                c.Llamadas.Add(nuevaLlamada);
+            }
+            return c;
         }
     }
 }
