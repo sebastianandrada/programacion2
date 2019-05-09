@@ -17,6 +17,7 @@ namespace TestForm
 
         public FrmMenu()
         {
+            Centralita centralita = new Centralita("mi empresa");
             InitializeComponent();
         }
 
