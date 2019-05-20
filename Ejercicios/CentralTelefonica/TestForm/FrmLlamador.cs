@@ -28,5 +28,10 @@ namespace TestForm
             this.centralita = centralita;
             InitializeComponent();
         }
+
+        private void txtNroDestino_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

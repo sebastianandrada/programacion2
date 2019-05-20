@@ -47,6 +47,9 @@ namespace TestForm
             this.btnSalir = new System.Windows.Forms.Button();
             this.txtNroOrigen = new System.Windows.Forms.TextBox();
             this.cmbFranja = new System.Windows.Forms.ComboBox();
+            this.btnAsterisco = new System.Windows.Forms.Button();
+            this.btnCero = new System.Windows.Forms.Button();
+            this.btnNumeral = new System.Windows.Forms.Button();
             this.groupBoxPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,9 +62,13 @@ namespace TestForm
             this.txtNroDestino.Size = new System.Drawing.Size(335, 38);
             this.txtNroDestino.TabIndex = 0;
             this.txtNroDestino.Text = "Nro Destino";
+            this.txtNroDestino.TextChanged += new System.EventHandler(this.txtNroDestino_TextChanged);
             // 
             // groupBoxPanel
             // 
+            this.groupBoxPanel.Controls.Add(this.btnNumeral);
+            this.groupBoxPanel.Controls.Add(this.btnCero);
+            this.groupBoxPanel.Controls.Add(this.btnAsterisco);
             this.groupBoxPanel.Controls.Add(this.btn9);
             this.groupBoxPanel.Controls.Add(this.btn8);
             this.groupBoxPanel.Controls.Add(this.btn7);
@@ -75,7 +82,7 @@ namespace TestForm
             this.groupBoxPanel.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxPanel.Name = "groupBoxPanel";
             this.groupBoxPanel.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxPanel.Size = new System.Drawing.Size(230, 209);
+            this.groupBoxPanel.Size = new System.Drawing.Size(230, 267);
             this.groupBoxPanel.TabIndex = 1;
             this.groupBoxPanel.TabStop = false;
             this.groupBoxPanel.Text = "Panel";
@@ -201,11 +208,45 @@ namespace TestForm
             // cmbFranja
             // 
             this.cmbFranja.BackColor = System.Drawing.SystemColors.Control;
-            this.cmbFranja.DataSource = Enum.GetValues(typeof(Franja));
-            this.cmbFranja.Location = new System.Drawing.Point(39, 374);
+            this.cmbFranja.DataSource = new CentralitaHerencia.Provincial.Franja[] {
+        CentralitaHerencia.Provincial.Franja.Franja_1,
+        CentralitaHerencia.Provincial.Franja.Franja_2,
+        CentralitaHerencia.Provincial.Franja.Franja_3};
+            this.cmbFranja.Items.AddRange(new object[] {
+            CentralitaHerencia.Provincial.Franja.Franja_1,
+            CentralitaHerencia.Provincial.Franja.Franja_2,
+            CentralitaHerencia.Provincial.Franja.Franja_3});
+            this.cmbFranja.Location = new System.Drawing.Point(39, 392);
             this.cmbFranja.Name = "cmbFranja";
             this.cmbFranja.Size = new System.Drawing.Size(412, 24);
             this.cmbFranja.TabIndex = 6;
+            // 
+            // btnAsterisco
+            // 
+            this.btnAsterisco.Location = new System.Drawing.Point(8, 220);
+            this.btnAsterisco.Name = "btnAsterisco";
+            this.btnAsterisco.Size = new System.Drawing.Size(50, 40);
+            this.btnAsterisco.TabIndex = 9;
+            this.btnAsterisco.Text = "*";
+            this.btnAsterisco.UseVisualStyleBackColor = true;
+            // 
+            // btnCero
+            // 
+            this.btnCero.Location = new System.Drawing.Point(84, 220);
+            this.btnCero.Name = "btnCero";
+            this.btnCero.Size = new System.Drawing.Size(50, 40);
+            this.btnCero.TabIndex = 10;
+            this.btnCero.Text = "0";
+            this.btnCero.UseVisualStyleBackColor = true;
+            // 
+            // btnNumeral
+            // 
+            this.btnNumeral.Location = new System.Drawing.Point(165, 220);
+            this.btnNumeral.Name = "btnNumeral";
+            this.btnNumeral.Size = new System.Drawing.Size(50, 40);
+            this.btnNumeral.TabIndex = 11;
+            this.btnNumeral.Text = "#";
+            this.btnNumeral.UseVisualStyleBackColor = true;
             // 
             // FrmLlamador
             // 
@@ -246,5 +287,8 @@ namespace TestForm
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.TextBox txtNroOrigen;
         private System.Windows.Forms.ComboBox cmbFranja;
+        private System.Windows.Forms.Button btnNumeral;
+        private System.Windows.Forms.Button btnCero;
+        private System.Windows.Forms.Button btnAsterisco;
     }
 }
