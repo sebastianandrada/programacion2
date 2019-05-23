@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    class Prueba : Equipo
+    public class EquipoBasquet : Equipo
     {
-        public string mimetodo()
+        public EquipoBasquet(string nombre, DateTime fechaCreacion) : base(nombre, fechaCreacion)
         {
-            this.pre
-            return "";
         }
     }
 }
