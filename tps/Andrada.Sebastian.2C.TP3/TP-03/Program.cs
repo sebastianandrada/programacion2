@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClasesAbstractas;
+using EntidadesAbstractas;
 using ClasesInstanciables;
+using Excepciones;
+using Archivos;
 
 namespace TP_03
 {
     class Program
     {
         static void Main(string[] args)
-        {/*
+        {
             Universidad gim = new Universidad();
             Alumno a1 = new Alumno(1, "Juan", "Lopez", "12234456",
             EntidadesAbstractas.Persona.ENacionalidad.Argentino, Universidad.EClases.Programacion,
@@ -120,7 +122,7 @@ namespace TP_03
             {
                 Console.WriteLine(e.Message);
             }
-            Console.ReadKey();*/
+            Console.ReadKey();
         }
     }
 }

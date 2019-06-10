@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP-3-Tests", "TP-3-Tests\TP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP-03", "TP-03\TP-03.csproj", "{CABCF9BF-2F5F-43F1-8C9A-A98AE67E8959}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Archivos", "Archivos\Archivos.csproj", "{D405B86F-C691-4769-A785-C8FF2266F175}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excepciones", "Excepciones\Excepciones.csproj", "{5F96734D-6C2F-4EAC-8285-9ACA7B5F087D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{CABCF9BF-2F5F-43F1-8C9A-A98AE67E8959}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CABCF9BF-2F5F-43F1-8C9A-A98AE67E8959}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CABCF9BF-2F5F-43F1-8C9A-A98AE67E8959}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D405B86F-C691-4769-A785-C8FF2266F175}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D405B86F-C691-4769-A785-C8FF2266F175}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D405B86F-C691-4769-A785-C8FF2266F175}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D405B86F-C691-4769-A785-C8FF2266F175}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F96734D-6C2F-4EAC-8285-9ACA7B5F087D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F96734D-6C2F-4EAC-8285-9ACA7B5F087D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F96734D-6C2F-4EAC-8285-9ACA7B5F087D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F96734D-6C2F-4EAC-8285-9ACA7B5F087D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

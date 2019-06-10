@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClasesAbstractas
+namespace EntidadesAbstractas
 {
     public abstract class Universitario : Persona
     {
@@ -22,8 +22,14 @@ namespace ClasesAbstractas
         #region "Sobrecargas"
         public override bool Equals(object obj)
         {
-            //TODO
-            return base.Equals(obj);
+            bool sonIguales = false;
+            
+            if(obj is Universitario)
+            {
+                Universitario universitario = (Universitario)obj;
+                sonIguales = this == universitario;
+            }
+            return sonIguales;
         }
         #endregion
 
@@ -32,7 +38,7 @@ namespace ClasesAbstractas
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(base.ToString());
-            sb.AppendFormat("Legajo: {0}\n", this.legajo);
+            sb.AppendFormat("\nLEGAJO NÚMERO: {0}\n", this.legajo);
             return sb.ToString();
         }
 

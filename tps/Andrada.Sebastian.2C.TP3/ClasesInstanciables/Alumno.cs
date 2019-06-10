@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClasesAbstractas;
+using EntidadesAbstractas;
 
 namespace ClasesInstanciables
 {
@@ -41,13 +41,13 @@ namespace ClasesInstanciables
         }
         #endregion
 
-        #region "Sobrecargas"
+        #region "Metodos"
         protected override string MostrarDatos()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(base.MostrarDatos());
-            sb.AppendFormat("Clases que toma: {0}\n", this.claseQueToma.ToString());
-            sb.AppendFormat("Estado de cuenta: {0}\n", this.estadoCuenta.ToString());
+            sb.AppendFormat("ESTADO DE CUENTA: {0}\n", this.estadoCuenta.ToString());
+            sb.AppendFormat("\nTOMA CLASES DE: {0}\n", this.claseQueToma.ToString());
             return sb.ToString();
         }
 
@@ -58,7 +58,7 @@ namespace ClasesInstanciables
 
         public override string ToString()
         {
-            return String.Format("clase que toma {0}, estado de la cuenta: {1}\n", this.claseQueToma.ToString(), this.estadoCuenta.ToString());
+            return this.MostrarDatos();
         }
         #endregion
     }
