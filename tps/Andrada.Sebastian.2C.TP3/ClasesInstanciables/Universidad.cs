@@ -81,14 +81,9 @@ namespace ClasesInstanciables
             string path = String.Format("{0}\\Universidad.xml", (Environment.GetFolderPath(Environment.SpecialFolder.Desktop)));
             bool resultado = false;
             Xml<Universidad> xml = new Xml<Universidad>();
-            try
-            {
-                resultado = xml.Guardar(path, uni);
-            }
-            catch (Exception e)
-            {
-                throw new ArchivosException(e);
-            }
+
+            resultado = xml.Guardar(path, uni);
+
             return resultado;
         }
 
@@ -97,14 +92,9 @@ namespace ClasesInstanciables
             string path = String.Format("{0}\\Universidad.xml", (Environment.GetFolderPath(Environment.SpecialFolder.Desktop)));
             Xml<Universidad> xml = new Xml<Universidad>();
             Universidad uni = new Universidad();
-            try
-            {
-                xml.Leer(path, out uni);
-            }
-            catch (Exception e)
-            {
-                throw new ArchivosException(e);
-            }
+
+            xml.Leer(path, out uni);
+
             return uni;
         }
 

@@ -72,14 +72,9 @@ namespace ClasesInstanciables
             bool resultado = false;
             string path = String.Format("{0}\\Jornada.txt", (Environment.GetFolderPath(Environment.SpecialFolder.Desktop)));
             Texto texto = new Texto();
-            try
-            {
-                resultado = texto.Guardar(path, jornada.ToString());
-            }
-            catch(Exception e)
-            {
-                throw new ArchivosException(e);
-            }
+
+            resultado = texto.Guardar(path, jornada.ToString());
+
             return resultado;
         }
 
@@ -88,14 +83,9 @@ namespace ClasesInstanciables
             string path = String.Format("{0}\\Jornada.txt", (Environment.GetFolderPath(Environment.SpecialFolder.Desktop)));
             Texto texto = new Texto();
             string resultado = "";
-            try
-            {
-                texto.Leer(path, out resultado);
-            }
-            catch (Exception e)
-            {
-                throw new ArchivosException(e);
-            }
+
+            texto.Leer(path, out resultado);
+
             return resultado;
         }
         #endregion
@@ -104,9 +94,9 @@ namespace ClasesInstanciables
         public static bool operator ==(Jornada j, Alumno a)
         {
             bool participaEnClase = false;
-            foreach(Alumno alumno in j.alumnos)
+            foreach (Alumno alumno in j.alumnos)
             {
-                if(alumno == a)
+                if (alumno == a)
                 {
                     participaEnClase = true;
                     break;
@@ -123,9 +113,9 @@ namespace ClasesInstanciables
         public static Jornada operator +(Jornada j, Alumno a)
         {
             bool estaCargado = false;
-            foreach(Alumno alumno in j.alumnos)
+            foreach (Alumno alumno in j.alumnos)
             {
-                if(alumno == a)
+                if (alumno == a)
                 {
                     estaCargado = true;
                     break;
@@ -145,7 +135,7 @@ namespace ClasesInstanciables
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat("CLASE DE {0} POR {1}\n", this.clase.ToString(), this.Instructor.ToString());
             sb.AppendLine("ALUMNOS:");
-            foreach(Alumno alumno in this.Alumnos)
+            foreach (Alumno alumno in this.Alumnos)
             {
                 sb.Append(alumno.ToString());
             }

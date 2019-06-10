@@ -99,6 +99,10 @@ namespace EntidadesAbstractas
         #endregion
 
         #region "Sobrecargas"
+        /// <summary>
+        /// retorna los datos de la Persona.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -109,6 +113,13 @@ namespace EntidadesAbstractas
         #endregion
 
         #region "Metodos"
+        /// <summary>
+        /// valida que el DNI sea correcto, teniendo en cuenta su nacionalidad. Argentino entre 1 y
+        /// 89999999 y Extranjero entre 90000000 y 99999999. Caso Contrario lanzara excepcion NacionalidadInvalidaException
+        /// </summary>
+        /// <param name="nacionalidad"></param>
+        /// <param name="dato"></param>
+        /// <returns>int</returns>
         private int ValidarDni(ENacionalidad nacionalidad, int dato)
         {
             switch (nacionalidad)
@@ -129,6 +140,13 @@ namespace EntidadesAbstractas
             return dato;
         }
 
+        /// <summary>
+        /// valida que el string DNI sea correcto, Si el DNI presenta un error de formato (más caracteres de los permitidos, letras, etc.) 
+        /// se lanzará DniInvalidoException.
+        /// </summary>
+        /// <param name="nacionalidad"></param>
+        /// <param name="dato"></param>
+        /// <returns></returns>
         private int ValidarDni(ENacionalidad nacionalidad, string dato)
         {
             int dni;
@@ -148,6 +166,11 @@ namespace EntidadesAbstractas
             return this.ValidarDni(nacionalidad, dni);
         }
 
+        /// <summary>
+        /// Valida que los nombres sean cadenas con caracteres válidos para nombres. Caso contrario, no se cargará.
+        /// </summary>
+        /// <param name="dato"></param>
+        /// <returns></returns>
         private string ValidarNombreApellido(string dato)
         {
             string nomAp = "";
