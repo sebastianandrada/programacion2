@@ -36,11 +36,34 @@ namespace Entidades
 
         public string MostrarDatos(IMostrar<List<Paquete>> elementos)
         {
-            return "";
+            StringBuilder sb = new StringBuilder();
+            foreach(Paquete p in (List<Paquete>)elementos)
+            {
+                sb.AppendLine(p.ToString());
+            }
+            return sb.ToString();
         }
 
         public static Correo operator +(Correo c, Paquete p)
         {
+            bool estaEnCorreo = false;
+            foreach(Paquete paquete in c.Paquetes)
+            {
+                if(paquete == p)
+                {
+                    estaEnCorreo = true;
+                    break;
+                }
+            }
+            if (estaEnCorreo)
+            {
+                throw new TrackingIdRepetidoException("Ya esta en el correo");
+            }
+            else
+            {
+                c.Paquetes.Add(p);
+            }
+
             return c;
         }
         #endregion
