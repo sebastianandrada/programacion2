@@ -33,14 +33,21 @@ namespace Entidades
         public static bool Insertar(Paquete p)
         {
             bool resultado = false;
+            string consulta = String.Format("INSERT INTO Paquetes (direccionEntrega, trackingID, alumno) VALUES ('{0}','{1}', '{2}')", p.DireccionEntrega, p.TrackingID, "Sebastian Andrada");
             try
             {
-                string consulta = String.Format("INSERT INTO Paquetes (direccionEntrega, trackingID, alumno) VALUES ('{0}','{1}', '{2}')", p.DireccionEntrega, p.TrackingID, "Sebastian Andrada");
+                comando.CommandText = consulta;
+                conexion.Open();
+                comando.ExecuteNonQuery();
                 resultado = true;
             }
             catch(Exception e)
             {
                 throw e;
+            }
+            finally
+            {
+                conexion.Close();
             }
             return resultado;
         }

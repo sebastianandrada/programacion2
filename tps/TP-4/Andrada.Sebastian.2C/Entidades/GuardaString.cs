@@ -12,8 +12,9 @@ namespace Entidades
         public static bool Guardar(this string texto, string archivo)
         {
             bool resultado = false;
-            StreamWriter sw = new StreamWriter(archivo, true);
             string path = String.Format("{0}\\{1}", (Environment.GetFolderPath(Environment.SpecialFolder.Desktop)), archivo);
+            StreamWriter sw = new StreamWriter(path, true);
+            
             try
             {
                 sw.WriteLine(texto);
