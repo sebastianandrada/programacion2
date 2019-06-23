@@ -19,6 +19,7 @@ namespace Entidades
 
         public event DelegadoEstado InformaEstado;
 
+        #region "Propiedades"
         public string DireccionEntrega
         {
             get
@@ -54,6 +55,7 @@ namespace Entidades
                 this.trackingID = value;
             }
         }
+        #endregion
 
         #region "Constructores"
         public Paquete(string direccionEntrega, string trackingID)
@@ -64,6 +66,10 @@ namespace Entidades
         #endregion
 
         #region "Metodos"
+        /// <summary>
+        /// Simula el cambio de estado de un paquete hasta que el estado sea entregado
+        /// luego lo almacena en la base de datos
+        /// </summary>
         public void MockCicloDeVida()
         {
             do
@@ -83,21 +89,42 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Dos paquetes son iguales si tienen el mismo TrackingID
+        /// </summary>
+        /// <param name="p1">paquete 1</param>
+        /// <param name="p2">paquete 2</param>
+        /// <returns>true si son iguales</returns>
         public static bool operator ==(Paquete p1, Paquete p2)
         {
             return p1.TrackingID == p2.TrackingID;
         }
 
+        /// <summary>
+        /// Dos paquete son distintos si no tienen el mismo trackingID
+        /// </summary>
+        /// <param name="p1">paquete 1</param>
+        /// <param name="p2">paquete 2</param>
+        /// <returns>true si no son iguales</returns>
         public static bool operator !=(Paquete p1, Paquete p2)
         {
             return !(p1 == p2);
         }
 
+        /// <summary>
+        /// Retorna la informacion de un paquete
+        /// </summary>
+        /// <returns>String con los datos del paquete</returns>
         public override string ToString()
         {
             return MostrarDatos((IMostrar<Paquete>) this);
         }
 
+        /// <summary>
+        /// Implementacion de interfaz mostrar
+        /// </summary>
+        /// <param name="elemento">paquete</param>
+        /// <returns></returns>
         public string MostrarDatos(IMostrar<Paquete> elemento)
         {
             return String.Format("{0} para {1}\n", ((Paquete)elemento).TrackingID, ((Paquete)elemento).DireccionEntrega);

@@ -13,7 +13,6 @@ namespace Entidades
         private static SqlCommand comando;
         private static SqlConnection conexion;
 
-        #region "Metodos"
         static PaqueteDAO()
         {
             string connectionStr = @"Data Source=.\SQLEXPRESS; Initial Catalog=correo-sp-2017; Integrated Security = True";
@@ -30,6 +29,12 @@ namespace Entidades
             }
         }
 
+        #region "Metodos"
+        /// <summary>
+        /// Inserta un paquete en una base de datos
+        /// </summary>
+        /// <param name="p">Paquete a persistir</param>
+        /// <returns>True en caso que se guarde correctamente</returns>
         public static bool Insertar(Paquete p)
         {
             bool resultado = false;

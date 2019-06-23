@@ -33,6 +33,9 @@ namespace Entidades
         #endregion
 
         #region "Metodos"
+        /// <summary>
+        /// Cierra todos los hilos que se encuentren activos
+        /// </summary>
         public void FinEntregas()
         {
             foreach(Thread mocked in this.mockPaquetes)
@@ -44,6 +47,11 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Muestra los datos de los paquetes del correo
+        /// </summary>
+        /// <param name="elementos">paquetes del correo</param>
+        /// <returns>String con datos de los paquetes</returns>
         public string MostrarDatos(IMostrar<List<Paquete>> elementos)
         {
             List<Paquete> paquetes = ((Correo)elementos).paquetes;
@@ -55,6 +63,12 @@ namespace Entidades
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Agregara un paquete en el correo, siempre y cuando su no esté repetido
+        /// </summary>
+        /// <param name="c">Correo</param>
+        /// <param name="p">Paquete a almacenar</param>
+        /// <returns>Correo con el paquete agregado</returns>
         public static Correo operator +(Correo c, Paquete p)
         {
             foreach(Paquete paquete in c.Paquetes)
